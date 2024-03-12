@@ -1,4 +1,4 @@
-'use client'
+
 import React, { useEffect, useState } from 'react'
 import useFetchAPI from '@/hooks/useFetchAPI'
 import Caraousel from '@/Components/Caraousel'
