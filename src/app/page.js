@@ -4,6 +4,7 @@ import { APIData } from "@/utils/api";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"  
 
+import MainHome from "@/pages/Home/MainHome";
 
 export default function Home() {
 
@@ -60,7 +61,7 @@ export default function Home() {
 
   return (
    <div>
-    hello
+  <MainHome/>
    </div>
   );
 }
