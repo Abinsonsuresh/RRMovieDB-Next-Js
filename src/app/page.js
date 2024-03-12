@@ -1,5 +1,5 @@
 'use client'
-import { getAPIurl } from "@/provider/redux/homeSlice";
+import { getAPIurl, getGenres } from "@/provider/redux/homeSlice";
 import { APIData } from "@/utils/api";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"  
@@ -12,6 +12,7 @@ export default function Home() {
 
   useEffect(()=>{
     FetchImgData()
+    getGenresData()
   })
 
   const FetchImgData = () =>{
@@ -27,6 +28,35 @@ export default function Home() {
     })
   }
 
+
+    //Call multiple APIs in single
+    const getGenresData = async () =>{
+      let promises = []
+      let endpoints = ["tv", "movie"]
+      let allGenres = {}
+  
+      endpoints.forEach((url)=>{
+        promises.push(APIData(`/genre/${url}/list`))
+  
+      })
+      const data = await Promise.all(promises)
+      console.log("GEnrea",data)
+  
+      //Genres destructered instead of using below method
+      data.map(({genres})=>{
+        return genres.map((item)=> (allGenres[item.id] = item))
+      })
+  
+      dispatch(getGenres(allGenres))
+  
+      
+      // data.map((res)=>{
+      //   console.log("Res",res.genres)
+      //   return res.genres.map((item)=> (allGenres[item.id] = item))
+      // })
+  
+      console.log(allGenres)
+    }
 
   return (
    <div>
