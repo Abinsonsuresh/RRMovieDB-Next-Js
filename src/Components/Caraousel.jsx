@@ -54,7 +54,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
                                     const rating = item.vote_average.toFixed(1)
                                     // console.log(Type)
                                     return (
-                                        <div key={item.id} onClick={() => router.push(`/${item.media_type || endpoint}/${item.id}`)} className='bg-primary relative shadow-2xl border border-secondary rounded-lg min-w-44 max-h-[400px] min-h-[400px]   cursor-pointer hover:scale-105 ease-in-out duration-300' >
+                                        <div key={item.id} onClick={() => router.push(`/Details/${item.media_type || item.endpoint}/${item.id}`)} className='bg-primary relative shadow-2xl border border-secondary rounded-lg min-w-44 max-h-[400px] min-h-[400px]   cursor-pointer hover:scale-105 ease-in-out duration-300' >
 
                                             <div className='circleRating absolute bottom-[7.5rem] shadow-2xl  right-0 bg-primary  rounded-full z-10 max-w-[50px]'>
                                                 {
