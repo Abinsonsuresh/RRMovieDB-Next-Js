@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 *{
   margin: 0;
   padding: 0;
@@ -50,7 +52,7 @@ border-radius: 50%;
 .CircularProgressbar-text {
   font-size: 30px;
   font-weight: 400;
-  fill: var(--color-text-primary);
+  fill: green;
   /* color: white; */
 }
 }
