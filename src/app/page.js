@@ -1,7 +1,13 @@
 'use client'
+import { getAPIurl } from "@/provider/redux/homeSlice";
 import { APIData } from "@/utils/api";
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux"  
+
+
 export default function Home() {
+
+  const dispatch =  useDispatch()
 
 
   useEffect(()=>{
@@ -16,6 +22,7 @@ export default function Home() {
         poster: res.images.secure_base_url + "original",
         profile: res.images.secure_base_url + "original"
       }
+      dispatch(getAPIurl(url))
       
     })
   }
