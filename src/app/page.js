@@ -4,7 +4,7 @@ import { APIData } from "@/utils/api";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"  
 
-import MainHome from "@/pages/Home/MainHome";
+import MainHome from "./Home/MainHome";
 
 export default function Home() {
 

@@ -1,5 +1,5 @@
 'use client'
-import HeroBanner from "../HeroBanner"
+import HeroBanner from "./HeroBanner"
 
 const MainHome = () => {
   return (
