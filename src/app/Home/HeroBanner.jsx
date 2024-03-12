@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import useFetchAPI from '@/hooks/useFetchAPI'
 import { useSelector } from "react-redux"
+import Link from 'next/link'
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
@@ -34,7 +35,10 @@ const HeroBanner = () => {
             <div className='w-full h-[450px] md:h-[700px] flex items-center relative'>
                 
                 <div className="bgimg w-full h-full absolute top-0 left-0 opacity-[0.5] overflow-hidden">
+
+                    
                     <img className='w-full h-full object-cover object-center' src={background} alt="" />
+        
                    
                 </div>
 
