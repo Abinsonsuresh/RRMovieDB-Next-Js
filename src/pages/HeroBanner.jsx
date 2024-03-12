@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 
-// import useFetchAPI from '../../hooks/useFetchAPI';
+import useFetchAPI from '@/hooks/useFetchAPI'
 import { useSelector } from "react-redux"
 
 const HeroBanner = () => {
@@ -12,8 +12,8 @@ const HeroBanner = () => {
 
     const { url } = useSelector((state) => state.home) //imgurl inside the home slice
 
-    // const { data, loading } = useFetchAPI("/trending/all/day")
-    const data = {}
+    const { data, loading } = useFetchAPI("/trending/all/day")
+    
     console.log(data)
 
     const SearchHandler = (e) => {
