@@ -7,6 +7,7 @@ import { MdOutlineNavigateNext, MdOutlineNavigateBefore, MdStar, MdAddToPhotos }
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useRouter } from 'next/navigation'
+import Image from 'next/image';
 const Caraousel = ({ data, loading, endpoint }) => {
 
     const carouselContainer = useRef()
@@ -47,7 +48,9 @@ const Caraousel = ({ data, loading, endpoint }) => {
 
                             {
                                 data?.map((item) => {
-                                    const posterUrl = item.poster_path ? url.poster + item.poster_path : "";
+                                    // const posterUrl = item.poster_path ? url.poster + item.poster_path : "";
+                                    const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/original" + item.poster_path : "";
+
                                     // const {media_type} = item;
                                     const Title = ""
                                     const Type = (item?.media_type?.charAt(0)?.toUpperCase() + item?.media_type?.slice(1)) || '';
@@ -87,7 +90,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
 
                                             <div className='flex justify-center items-start flex-col'>
                                                 <div>
-                                                    <img className='max-w-44 object-cover rounded-lg' src={posterUrl} alt="" />
+                                                    <Image className='max-w-44 object-cover rounded-lg' width={800} height={800} src={posterUrl} alt="" />
                                                 </div>
                                                 <div className='text-primary p-2'>
                                                     <p className='font-bold '>{item?.title || item?.name}</p>
