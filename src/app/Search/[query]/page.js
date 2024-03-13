@@ -14,8 +14,9 @@ const page = ({params}) => {
         APIData(`/search/multi?query=${params.query}&page=${pageNum}`).then(
             (res)=>{
                 setData(res)
-                // setPageNum((prev) => prev + 1);
+                setPageNum((prev) => prev + 1);
                 console.log(res)
+                setLoading(false)
             }
         )
     }

@@ -8,7 +8,7 @@ const MovieCard = ({data}) => {
 const router = useRouter()
     const Type = (data?.media_type?.charAt(0)?.toUpperCase() + data?.media_type?.slice(1)) || '';
     const posterUrl = data.poster_path ? url.poster + data.poster_path : "";
-console.log(url)
+
   return (
 
 
