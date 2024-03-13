@@ -3,7 +3,7 @@ import Caraousel from '@/Components/Caraousel';
 import MovieCard from '@/Components/MovieCard';
 import { APIData } from '@/utils/api';
 import React, { useEffect, useState } from 'react'
-
+import InfiniteScroll from "react-infinite-scroll-component";
 const page = ({ params }) => {
     const [data, SetData] = useState(null);
     const [pageNum, SetPageNum] = useState(1);
@@ -30,7 +30,7 @@ const page = ({ params }) => {
                 else {
                     SetData(res)
                 }
-                // setPageNum((prev) => prev + 1);
+                SetPageNum((prev) => prev + 1);
                 console.log(res)
 
             }
@@ -45,19 +45,28 @@ const page = ({ params }) => {
     return (
         <div className='flex justify-center items-center flex-wrap gap-5'>
 
-            {
-                data?.results.map((item, index) => {
-                    if (item.media_type === "person") return;
-                    return (
-                        <div className='' key={index}>
-                            <MovieCard data={item} />
-                        </div>
+            <InfiniteScroll
+            className='flex justify-center items-center flex-wrap gap-5'
+                dataLength={data?.results?.length || []}
+                next={NextPage}
+                hasMore={pageNum <= data?.total_pages}
+            >
+                {
+                    data?.results.map((item, index) => {
+                        if (item.media_type === "person") return;
+                        return (
+                            <div className='' key={index}>
+                                <MovieCard data={item} />
+                            </div>
 
-                    )
+                        )
 
-                })
-            }
-         
+                    })
+                }
+            </InfiniteScroll>
+
+
+
         </div>
     )
 }
