@@ -21,10 +21,27 @@ const page = ({params}) => {
         )
     }
 
+    const NextPage =()=>{
+        APIData(`/search/multi?query=${params.query}&page=${pageNum}`).then(
+            (res)=>{
+                if(data?.results)
+                {
+                    setData({...data, results:[...data?.results,...res?.results]})
+                }
+                else{
+                    setData(res)
+                }
+                setPageNum((prev) => prev + 1);
+                console.log(res)
+               
+            }
+        )
+    }
+
     useEffect(()=>{
         setPageNum(1)
         FetchSearchData()
-    },[params.query])
+    },[params.query,pageNum])
     
   return (
     <div className='flex justify-center items-center flex-wrap gap-5'>
