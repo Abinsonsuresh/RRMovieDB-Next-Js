@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import useFetchAPI from '@/hooks/UseFetchAPI'
+import UseFetchAPI from '@/hooks/UseFetchAPI'
 import Caraousel from '@/Components/Caraousel'
 
 const Popular = () => {
   const [endpoint, setEndpoint] = useState("movie")
 
 
-  const {data, loading} = useFetchAPI(`/${endpoint}/popular`)
+  const {data, loading} = UseFetchAPI(`/${endpoint}/popular`)
   console.log("Trending:",data)
   return (
     <div>

@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from 'react'
-import useFetchAPI from '@/hooks/UseFetchAPI'
+import UseFetchAPI from '@/hooks/UseFetchAPI'
 import Caraousel from '@/Components/Caraousel'
 
 const TopRated = () => {
   const [endpoint, setEndpoint] = useState("movie")
 
 
-  const {data, loading} = useFetchAPI(`/${endpoint}/top_rated`)
+  const {data, loading} = UseFetchAPI(`/${endpoint}/top_rated`)
   console.log("TopRated:",data)
   return (
     <div>

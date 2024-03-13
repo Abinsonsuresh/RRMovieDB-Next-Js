@@ -1,11 +1,11 @@
 'use client'
 import DataBanner from "@/Components/DataBanner"
-import useFetchAPI from "@/hooks/UseFetchAPI"
+import UseFetchAPI from "@/hooks/UseFetchAPI"
 
 const page = ({params}) => {
 
-  const { data, loading } = useFetchAPI(`/${params.mediaType}/${params.id}/videos`)
-  const { data: credits, loading: loadingCreds } = useFetchAPI(`/${params.mediaType}/${params.id}/credits`)
+  const { data, loading } = UseFetchAPI(`/${params.mediaType}/${params.id}/videos`)
+  const { data: credits, loading: loadingCreds } = UseFetchAPI(`/${params.mediaType}/${params.id}/credits`)
 console.log(data)
   // console.log(credits?.crew)
   return (

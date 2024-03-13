@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import useFetchAPI from '@/hooks/UseFetchAPI'
+import UseFetchAPI from '@/hooks/UseFetchAPI'
 import Caraousel from '@/Components/Caraousel'
 
 const Trending = () => {
   const [endpoint, setEndpoint] = useState("day")
 
 
-  const {data, loading} = useFetchAPI(`/trending/all/${endpoint}`)
+  const {data, loading} = UseFetchAPI(`/trending/all/${endpoint}`)
   console.log("Trending:",data)
   return (
    

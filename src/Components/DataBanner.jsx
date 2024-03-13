@@ -1,5 +1,5 @@
 import React from 'react'
-import useFetchAPI from '@/hooks/UseFetchAPI'
+import UseFetchAPI from '@/hooks/UseFetchAPI'
 import { useSelector } from 'react-redux'
 
 import dayjs from 'dayjs'
@@ -9,7 +9,7 @@ import "react-circular-progressbar/dist/styles.css";
 import Image from 'next/image';
 const DataBanner = ({ videos, credits,mediaType, id }) => {
 
-    const { data, loading } = useFetchAPI(`/${mediaType}/${id}`)
+    const { data, loading } = UseFetchAPI(`/${mediaType}/${id}`)
     const { url } = useSelector((state) => state.home) 
     const { genres } = useSelector((state) => state.home)
     const genresAPIData = data?.genres?.map((g, i) => g.id);
