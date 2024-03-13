@@ -90,7 +90,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
 
                                             <div className='flex justify-center items-start flex-col'>
                                                 <div>
-                                                    <Image className='max-w-44 object-cover rounded-lg' width={800} height={800} src={posterUrl} alt="" />
+                                                    <Image className='max-w-44 object-cover rounded-lg' width={200} height={200} src={posterUrl} alt="" />
                                                 </div>
                                                 <div className='text-primary p-2'>
                                                     <p className='font-bold '>{item?.title || item?.name}</p>

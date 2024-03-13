@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { MdAddToPhotos } from 'react-icons/md';
@@ -7,7 +8,7 @@ const MovieCard = ({data}) => {
     const { url } = useSelector((state) => state.home)
 const router = useRouter()
     const Type = (data?.media_type?.charAt(0)?.toUpperCase() + data?.media_type?.slice(1)) || '';
-    const posterUrl = data.poster_path ? url.poster + data.poster_path : "";
+    const posterUrl = data.poster_path ? "https://image.tmdb.org/t/p/original" + data.poster_path : "";
 
   return (
 
@@ -23,7 +24,7 @@ const router = useRouter()
 
     <div className='flex justify-center items-start flex-col'>
         <div>
-            <img className='w-44 object-fill rounded-lg ' src={posterUrl} alt="" />
+            <Image className='w-44 object-fill rounded-lg ' width={200} height={200} src={posterUrl} alt="" />
         </div>
         <div className='text-primary p-2'>
             <p className='font-bold '>{data?.title || data?.name}</p>

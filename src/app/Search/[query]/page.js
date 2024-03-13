@@ -41,7 +41,7 @@ const page = ({params}) => {
     useEffect(()=>{
         setPageNum(1)
         FetchSearchData()
-    },[params.query,pageNum])
+    },[params.query])
     
   return (
     <div className='flex justify-center items-center flex-wrap gap-5'>
