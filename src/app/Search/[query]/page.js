@@ -50,6 +50,7 @@ const page = ({ params }) => {
                 dataLength={data?.results?.length || []}
                 next={NextPage}
                 hasMore={pageNum <= data?.total_pages}
+                loader={<h4>Loading...</h4>}
             >
                 {
                     data?.results.map((item, index) => {
