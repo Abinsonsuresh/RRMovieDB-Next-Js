@@ -21,7 +21,7 @@ const HeroBanner = () => {
         e.preventDefault()
         if (e.key == "Enter" && query.length > 0) {
            
-            router.push('/Search')
+            router.push(`/Search/${query}`)
             console.log("click ee")
             // navigate(`/search/${query}`)
         }
