@@ -1,5 +1,5 @@
 import React from 'react'
-import UseFetchAPI from '@/hooks/UseFetchAPI'
+import UseFetchAPI from '@/hooks/UseFetchAPI';
 import { useSelector } from 'react-redux'
 
 import dayjs from 'dayjs'
