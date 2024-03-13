@@ -48,7 +48,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
 
                                     <div className='shadow-2xl  rounded-lg flex justify-center items-center'>
                                         {
-                                            data.poster_path ? (<Image className='min-w-[22rem]  h-[35rem] rounded-lg' width={1000} height={1000} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<img src="" alt="" />)
+                                            data.poster_path ? (<Image className='min-w-[22rem]  h-[35rem] rounded-lg' width={1000} height={1000} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div>""</div>)
                                         }
 
                                     </div>
