@@ -1,6 +1,6 @@
 'use client'
 import DataBanner from "@/Components/DataBanner"
-import useFetchAPI from "@/hooks/useFetchAPI"
+import useFetchAPI from "@/hooks/UseFetchAPI"
 
 const page = ({params}) => {
 

@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import useFetchAPI from '@/hooks/useFetchAPI'
+import useFetchAPI from '@/hooks/UseFetchAPI'
 import { useSelector } from "react-redux"
 import Link from 'next/link'
 import Image from 'next/image'
