@@ -26,17 +26,14 @@ const page = ({params}) => {
     },[params.query])
     
   return (
-    <div>
-        <div>
-            darag
-        </div>
+    <div className='flex justify-center items-center flex-wrap gap-5'>
+     
         {
             data?.results.map((item,index)=>{
                 if (item.media_type === "person") return;
                 return(
                 <div className='' key={index}>
                     <MovieCard data={item} />
-
                 </div>
 
                 )

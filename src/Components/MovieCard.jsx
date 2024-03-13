@@ -13,7 +13,7 @@ console.log(url)
 
 
     
-    <div  onClick={() => router.push(`/Details/${data.media_type || endpoint}/${data.id}`)} className='bg-primary relative shadow-2xl border border-secondary rounded-lg min-w-44 max-h-[400px] min-h-[400px]   cursor-pointer hover:scale-105 ease-in-out duration-300' >
+    <div  onClick={() => router.push(`/Details/${data.media_type || endpoint}/${data.id}`)} className='bg-primary relative shadow-2xl border border-secondary rounded-lg min-w-44 max-h-[400px] min-h-[400px] max-w-44  cursor-pointer hover:scale-105 ease-in-out duration-300' >
 
 
     <div className='absolute bg-[#424242c3] rounded-sm top-0 right-0 p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'>
@@ -23,7 +23,7 @@ console.log(url)
 
     <div className='flex justify-center items-start flex-col'>
         <div>
-            <img className='max-w-44 object-cover rounded-lg' src={posterUrl} alt="" />
+            <img className='w-44 object-fill rounded-lg ' src={posterUrl} alt="" />
         </div>
         <div className='text-primary p-2'>
             <p className='font-bold '>{data?.title || data?.name}</p>
