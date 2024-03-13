@@ -6,6 +6,7 @@ import dayjs from 'dayjs'
 import { MdStar } from "react-icons/md";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import Image from 'next/image';
 const DataBanner = ({ videos, credits,mediaType, id }) => {
 
     const { data, loading } = useFetchAPI(`/${mediaType}/${id}`)
@@ -37,7 +38,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
                         {!!data && (<React.Fragment>
                             <div className='relative'>
                                 <div className=' absolute -z-10'>
-                                    <img src={url.backdrop + data.backdrop_path} className='object-cover  opacity-15 ' alt="" />
+                                    <Image src={"https://image.tmdb.org/t/p/original" + data.backdrop_path}  className='object-cover  opacity-15 ' width={1000} height={1000} alt="" />
                                     <span className="op w-full h-[250px]  absolute bottom-0 left-0 "></span>
                                 </div>
 
@@ -47,7 +48,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
 
                                     <div className='shadow-2xl  rounded-lg flex justify-center items-center'>
                                         {
-                                            data.poster_path ? (<img className='min-w-[22rem]  h-[35rem] rounded-lg' src={url.backdrop + data?.poster_path} alt="" />) : (<img src="" alt="" />)
+                                            data.poster_path ? (<Image className='min-w-[22rem]  h-[35rem] rounded-lg' width={1000} height={1000} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<img src="" alt="" />)
                                         }
 
                                     </div>
