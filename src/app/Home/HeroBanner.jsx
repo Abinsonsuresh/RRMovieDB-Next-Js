@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import useFetchAPI from '@/hooks/useFetchAPI'
 import { useSelector } from "react-redux"
 import Link from 'next/link'
+import Image from 'next/image'
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
@@ -37,7 +38,7 @@ const HeroBanner = () => {
                 <div className="bgimg w-full h-full absolute top-0 left-0 opacity-[0.5] overflow-hidden">
                     <Link href={`/Details/${'tv'}/${'22223'}`}>
                     
-                    <img className='w-full h-full object-cover object-center' src={background} alt="" />
+                    <Image className='w-full h-full object-cover object-center' height={1000} width={1000} src={background} alt="" />
                     </Link>
                    
                 </div>
