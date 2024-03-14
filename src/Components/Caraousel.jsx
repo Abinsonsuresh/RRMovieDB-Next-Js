@@ -52,7 +52,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
                                     const posterUrl = item.poster_path ? "https://image.tmdb.org/t/p/original" + item.poster_path : "";
 
                                     // const {media_type} = item;
-                                    const Title = ""
+                                    const Type_t = endpoint?.charAt(0)?.toUpperCase() + endpoint?.slice(1) || "";
                                     const Type = (item?.media_type?.charAt(0)?.toUpperCase() + item?.media_type?.slice(1)) || '';
                                     const rating = item.vote_average.toFixed(1)
                                     // console.log(Type)
@@ -94,7 +94,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
                                                 </div>
                                                 <div className='text-primary p-2'>
                                                     <p className='font-bold '>{item?.title || item?.name}</p>
-                                                    <p className='text-gray-500'>{Type || "Movie"}</p>
+                                                    <p className='text-gray-500'>{Type || Type_t}</p>
                                                     <div className='flex'>
                                                         {/* <GenresBlock data={item?.genre_ids.slice(0, 1)} /> */}
                                                     </div>
