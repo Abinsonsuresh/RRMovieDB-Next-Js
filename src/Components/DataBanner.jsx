@@ -37,10 +37,13 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
                         {/* //!! means true */}
                         {!!data && (<React.Fragment>
                             <div className='relative mt-16'>
-                                <div className=' absolute -z-10'>
-                                    <Image src={"https://image.tmdb.org/t/p/original" + data.backdrop_path}  className='object-cover  opacity-15 ' width={1000} height={1000} alt="" />
+                                <div className=' absolute -z-10 '>
+                                    <Image src={"https://image.tmdb.org/t/p/original" + data.backdrop_path}  className='object-cover  opacity-15 ' width={2000} height={1000} alt="" />
                                     <span className="op w-full h-[250px]  absolute bottom-0 left-0 "></span>
                                 </div>
+
+
+                        
 
                                 <div className='flex flex-col lg:flex-row justify-between items-center p-6  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50'>
 
