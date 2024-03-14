@@ -48,8 +48,8 @@ const HeroBanner = () => {
                 </div>
 
                 <div className="searchIP relative flex flex-col max-w-[700px] items-center m-0 mx-auto">
-                    <div>
-                        <p className='text-4xl font-bold text-white'>Explore the World of Movies</p>
+                    <div className='my-6'>
+                        <p className='text-4xl font-bold text-center text-white'>Explore the World of Movies</p>
                     </div>
                     <div className=''>
                         <form  onSubmit={SearchHandler}>
@@ -61,7 +61,7 @@ const HeroBanner = () => {
                             onKeyUp={SearchHandler}
                             className='p-2 border rounded'
                         />
-                        <button className='px-4 py-2 bg-blue-500 text-white ml-2' type='submit'>Search</button>
+                        <button className='px-4 py-2 bg-orange-400 text-white ml-2 rounded-lg' type='submit'>Search</button>
 
                         </form>
                     </div>
