@@ -45,10 +45,7 @@ const Explore = ({mediaType}) => {
     };
 
     const fetchNextPageData = () => {
-        APIData(
-            `/discover/${mediaType}?page=${pageNum}`,
-            filters
-        ).then((res) => {
+        APIData(`/discover/${mediaType}?page=${pageNum}`,filters ).then((res) => {
             if (data?.results) {
                 setData({
                     ...data,
