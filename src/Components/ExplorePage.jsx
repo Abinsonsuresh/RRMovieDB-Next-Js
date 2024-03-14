@@ -142,6 +142,7 @@ const Explore = ({mediaType}) => {
                                     if (item.media_type === "person") return;
                                     return (
                                         <MovieCard
+                                        key={index}
                                         data={item}
                                         endpoint={mediaType}
                                         />
