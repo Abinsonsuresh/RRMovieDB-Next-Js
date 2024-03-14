@@ -13,7 +13,7 @@ const TopRated = () => {
     <div>
       <>
       <div className='mt-4'>
-        <h2 className='text-2xl font-bold'>TopRated Movies</h2>
+        <h2 className='text-2xl font-bold'>Top Rated Movies</h2>
       </div>
       <div>
         <Caraousel data={data?.results} loading={loading} endpoint={endpoint}/>
