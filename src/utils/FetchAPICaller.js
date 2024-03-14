@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { APIData } from "@/utils/api";
-const UseFetchAPI = (url) => {
+const FetchAPICaller = (url) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(null);
     const [error, setError] = useState(null);
@@ -24,4 +24,4 @@ const UseFetchAPI = (url) => {
     return { data, loading, error };
 };
 
-export default UseFetchAPI;
+export default FetchAPICaller;

@@ -32,10 +32,10 @@ const Navbar = () => {
 
     const NavProperties = (data) => {
         if (data === 'movies') {
-            router.push('/movies');
+            router.push('/Explore/movies');
         }
         if (data === 'tvshows') {
-            router.push('/tvshows');
+            router.push('/Explore/tvshows');
         }
         if (data === 'home') {
             router.push('/');

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import UseFetchAPI from '@/hooks/UseFetchAPI'
+import UseFetchAPI from '@/utils/FetchAPICaller'
 import Caraousel from '@/Components/Caraousel'
 
 const TopRated = () => {
