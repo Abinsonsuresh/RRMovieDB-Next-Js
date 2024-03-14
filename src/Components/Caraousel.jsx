@@ -14,7 +14,6 @@ const Caraousel = ({ data, loading, endpoint }) => {
     const carouselContainer = useRef()
 
 
-    const { url } = useSelector((state) => state.home)
 
     const router = useRouter()
     const CarouselNaviagtion = (dir) => {
