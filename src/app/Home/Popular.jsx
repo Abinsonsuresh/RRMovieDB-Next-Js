@@ -11,8 +11,8 @@ const Popular = () => {
   return (
     <div>
       <>
-      <div>
-        <h2>Populaar Movies</h2>
+      <div className='mt-4'>
+        <h2 className='text-2xl font-bold'>Populaar Movies</h2>
       </div>
       <div>
         <Caraousel data={data?.results} loading={loading} endpoint={endpoint}/>
