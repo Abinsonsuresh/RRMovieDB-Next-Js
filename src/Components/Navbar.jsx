@@ -11,7 +11,7 @@ const Navbar = () => {
     const [nav, setNav] = useState(false);
     const [searchbox, setsearchbox] = useState(false)
     const [query, setQuery] = useState("");
-    
+
     const shownav = () => {
         setNav(!nav);
     };
@@ -92,7 +92,10 @@ const Navbar = () => {
             {/* Search box */}
             <div className={ searchbox ? 'fixed z-50 shadow-2xl top-20 right-0 flex flex-col justify-between ease-in duration-100 w-full': 'fixed top-[-100%]  flex flex-col items-center justify-between ease-in'}>
 
-            <div className='p-4'>
+            <div className='p-4 relative'>
+            <div className="absolute top-0 right-0 p-6">
+                        <VscChromeClose size={20} className="cursor-pointer" onClick={() => showSearch()} />
+                    </div>
                         <form  onSubmit={SearchHandler}>
 
                         <input
