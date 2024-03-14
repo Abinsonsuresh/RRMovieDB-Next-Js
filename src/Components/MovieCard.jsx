@@ -8,7 +8,7 @@ const MovieCard = ({data}) => {
     const { url } = useSelector((state) => state.home)
 const router = useRouter()
     const Type = (data?.media_type?.charAt(0)?.toUpperCase() + data?.media_type?.slice(1)) || '';
-    const posterUrl = data.poster_path ? "https://image.tmdb.org/t/p/original" + data.poster_path : "";
+    const posterUrl = data.poster_path ? "https://image.tmdb.org/t/p/original" + data.poster_path : "https://user-images.githubusercontent.com/841956/92777123-2c31ce80-f3a0-11ea-86b1-fbc03d1f7ce0.png";
 
   return (
 
