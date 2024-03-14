@@ -82,7 +82,7 @@ const Navbar = () => {
 
                     <div className="md:hidden flex justify-center items-center gap-3">
                     <ThemeToggleBtn />
-                    <MdOutlineSearch size={20} className="cursor-pointer" />
+                    <MdOutlineSearch size={20} className="cursor-pointer" onClick={()=> showSearch()}/>
                     <SlMenu className="cursor-pointer" onClick={() => shownav()} />
                 </div>
 
