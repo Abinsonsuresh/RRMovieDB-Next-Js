@@ -30,9 +30,9 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="fixed"></div>
+            <div className="fixed top-0 z-20 w-full  shadow-md bg-white bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5">
 
-            <div className="flex justify-between items-center p-4">
+            <div className="flex justify-between items-center p-4 ">
                 <div>
                     <div className="text-xl font-bold cursor-pointer" onClick={() => NavProperties('home')}>
                         <span className="text-orange-200">RR</span>
@@ -113,6 +113,7 @@ const Navbar = () => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );
