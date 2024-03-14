@@ -7,7 +7,7 @@ const Popular = () => {
 
 
   const {data, loading} = UseFetchAPI(`/${endpoint}/popular`)
-  console.log("Popular:",data)
+
   return (
     <div>
       <>

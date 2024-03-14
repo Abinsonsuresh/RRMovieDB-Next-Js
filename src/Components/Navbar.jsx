@@ -25,8 +25,7 @@ const Navbar = () => {
         if (e.key == "Enter" && query.length > 0) {
            
             router.push(`/Search/${query}`)
-            console.log("click ee")
-            // navigate(`/search/${query}`)
+           
         }
     }
 

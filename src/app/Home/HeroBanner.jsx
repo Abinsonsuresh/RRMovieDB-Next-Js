@@ -9,14 +9,13 @@ import Image from 'next/image'
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
-    console.log(query)
+  
     const router = useRouter()
 
     const { url } = useSelector((state) => state.home) //imgurl inside the home slice
 
     const { data, loading } = useFetchAPI("/trending/all/day")
-    
-    console.log(data)
+  
 
     const SearchHandler = (e) => {
         e.preventDefault()
@@ -24,7 +23,7 @@ const HeroBanner = () => {
            
             router.push(`/Search/${query}`)
             console.log("click ee")
-            // navigate(`/search/${query}`)
+       
         }
     }
     useEffect(() => {

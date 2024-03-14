@@ -8,7 +8,7 @@ const SearchPage = ({query}) => {
     const [data, SetData] = useState(null);
     const [pageNum, SetPageNum] = useState(1);
     const [loading, SetLoading] = useState(false);
-    console.log(pageNum)
+
   
     const FetchSearchData = () => {
         APIData(`/search/multi?query=${query}&page=${pageNum}`).then(
@@ -16,7 +16,7 @@ const SearchPage = ({query}) => {
                 SetLoading(true)
                 SetData(res)
                 // setPageNum((prev) => prev + 1);
-                console.log(res)
+              
                 SetLoading(false)
             }
         )
@@ -32,8 +32,7 @@ const SearchPage = ({query}) => {
                     SetData(res)
                 }
                 SetPageNum((prev) => prev + 1);
-                console.log(res)
-
+          
             }
         )
     }

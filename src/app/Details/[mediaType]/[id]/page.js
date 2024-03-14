@@ -4,13 +4,13 @@ import UseFetchAPI from "@/utils/FetchAPICaller"
 
 const page = ({ params }) => {
 
-  // const { data, loading } = UseFetchAPI(`/${params.mediaType}/${params.id}/videos`)
-  // const { data: credits, loading: loadingCreds } = UseFetchAPI(`/${params.mediaType}/${params.id}/credits`)
+  const { data, loading } = UseFetchAPI(`/${params.mediaType}/${params.id}/videos`)
+  const { data: credits, loading: loadingCreds } = UseFetchAPI(`/${params.mediaType}/${params.id}/credits`)
   // console.log(data)
   // console.log(credits?.crew)
   return (
     <>
-      <DataBanner  mediaType={params.mediaType} id={params.id} />
+      <DataBanner  mediaType={params.mediaType} id={params.id} credits={credits?.crew} video={data?.results?.[0]}/>
     </>
   )
 }

@@ -14,8 +14,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
     const { genres } = useSelector((state) => state.home)
     const genresAPIData = data?.genres?.map((g, i) => g.id);
     // const genresAPIData = ["2","1"]
-    console.log(credits)
-
+  
     const rating = data?.vote_average.toFixed(1);
 
     const toHoursAndMinutes = (totalMinutes) => {
@@ -27,7 +26,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
 
     const director = credits?.filter((item) => item?.job === "Director")
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
-    console.log(data)
+ 
 
     return (
         <>

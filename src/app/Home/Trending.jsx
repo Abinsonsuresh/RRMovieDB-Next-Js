@@ -7,7 +7,7 @@ const Trending = () => {
 
 
   const {data, loading} = UseFetchAPI(`/trending/all/${endpoint}`)
-  console.log("Trending:",data)
+ 
   return (
    
       <>

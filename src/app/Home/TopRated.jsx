@@ -8,7 +8,7 @@ const TopRated = () => {
 
 
   const {data, loading} = UseFetchAPI(`/${endpoint}/top_rated`)
-  console.log("TopRated:",data)
+
   return (
     <div>
       <>

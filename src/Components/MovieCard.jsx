@@ -7,7 +7,6 @@ import GenresBlock from './GenresBlock';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 const MovieCard = ({ data, endpoint }) => {
-    console.log("SXPLORE", data.genre_ids.slice(0, 1))
     const { url } = useSelector((state) => state.home)
     const router = useRouter()
     const Type_t = endpoint?.charAt(0)?.toUpperCase() + endpoint?.slice(1) || "";

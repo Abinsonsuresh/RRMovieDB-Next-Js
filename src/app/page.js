@@ -18,7 +18,7 @@ export default function Home() {
 
   const FetchImgData = () =>{
     APIData('/configuration').then((res)=>{
-      console.log(res)
+     
       const url = {
         backdrop: res.images.secure_base_url + "original",
         poster: res.images.secure_base_url + "original",
@@ -41,8 +41,7 @@ export default function Home() {
   
       })
       const data = await Promise.all(promises)
-      console.log("GEnrea",data)
-  
+   
       //Genres destructered instead of using below method
       data.map(({genres})=>{
         return genres.map((item)=> (allGenres[item.id] = item))
@@ -56,7 +55,7 @@ export default function Home() {
       //   return res.genres.map((item)=> (allGenres[item.id] = item))
       // })
   
-      console.log(allGenres)
+   
     }
 
   return (
