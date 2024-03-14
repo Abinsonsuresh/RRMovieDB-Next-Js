@@ -8,6 +8,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useRouter } from 'next/navigation'
 import Image from 'next/image';
+import GenresBlock from './GenresBlock';
 const Caraousel = ({ data, loading, endpoint }) => {
 
     const carouselContainer = useRef()
@@ -96,7 +97,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
                                                     <p className='font-bold '>{item?.title || item?.name}</p>
                                                     <p className='text-gray-500'>{Type || Type_t}</p>
                                                     <div className='flex'>
-                                                        {/* <GenresBlock data={item?.genre_ids.slice(0, 1)} /> */}
+                                                        <GenresBlock data={item?.genre_ids.slice(0, 1)} />
                                                     </div>
 
                                                 </div>
