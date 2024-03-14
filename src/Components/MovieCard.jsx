@@ -4,7 +4,7 @@ import React from 'react'
 import { MdAddToPhotos } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 
-const MovieCard = ({data}) => {
+const MovieCard = ({data, endpoint}) => {
     const { url } = useSelector((state) => state.home)
 const router = useRouter()
     const Type = (data?.media_type?.charAt(0)?.toUpperCase() + data?.media_type?.slice(1)) || '';

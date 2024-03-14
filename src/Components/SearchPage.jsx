@@ -9,7 +9,7 @@ const SearchPage = ({query}) => {
     const [pageNum, SetPageNum] = useState(1);
     const [loading, SetLoading] = useState(false);
     console.log(pageNum)
-
+  
     const FetchSearchData = () => {
         APIData(`/search/multi?query=${query}&page=${pageNum}`).then(
             (res) => {

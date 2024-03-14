@@ -5,7 +5,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Select from "react-select";
 
 
-import FetchAPICaller from "@utils/apicall.js";
+import FetchAPICaller from "@/utils/FetchAPICaller";
 import { APIData } from '@/utils/api';
 import MovieCard from "./MovieCard";
 
@@ -101,7 +101,7 @@ const Explore = ({mediaType}) => {
            
                 <div className="pageHeader">
                     
-                    <div className="filters">
+                    <div className="flex justify-end gap-5 items-center">
                         <Select
                             isMulti
                             name="genres"
@@ -112,7 +112,7 @@ const Explore = ({mediaType}) => {
                             getOptionValue={(option) => option.id}
                             onChange={onChange}
                             placeholder="Select genres"
-                            className="react-select-container genresDD"
+                            className="w-44"
                             classNamePrefix="react-select"
                         />
                         <Select
@@ -122,7 +122,7 @@ const Explore = ({mediaType}) => {
                             onChange={onChange}
                             isClearable={true}
                             placeholder="Sort by"
-                            className="react-select-container sortbyDD"
+                            className="w-44"
                             classNamePrefix="react-select"
                         />
                     </div>
@@ -132,7 +132,7 @@ const Explore = ({mediaType}) => {
                     <>
                         {data?.results?.length > 0 ? (
                             <InfiniteScroll
-                                className="content"
+                                className="flex justify-center items-center flex-wrap gap-5 mt-8"
                                 dataLength={data?.results?.length || []}
                                 next={fetchNextPageData}
                                 hasMore={pageNum <= data?.total_pages}
@@ -143,6 +143,7 @@ const Explore = ({mediaType}) => {
                                     return (
                                         <MovieCard
                                         data={item}
+                                        endpoint={mediaType}
                                         />
                                     );
                                 })}
