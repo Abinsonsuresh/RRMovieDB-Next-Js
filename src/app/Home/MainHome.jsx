@@ -8,9 +8,11 @@ const MainHome = () => {
   return (
    <div>
        <HeroBanner/>
+       <div className="p-2 md:p-6">
        <Trending/>
        <Popular/>
        <TopRated/>
+       </div>
 
    </div>
        

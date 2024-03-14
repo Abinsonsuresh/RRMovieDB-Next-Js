@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 export const ThemeContext = createContext()
-export const ThemeProvider = ({initialTheme, children})=>{
+export const ThemeProvider = ({children})=>{
     const [theme, setTheme] = useState("dark")
 
     const rawSetTheme =(theme)=>{
@@ -13,10 +13,7 @@ export const ThemeProvider = ({initialTheme, children})=>{
         root.classList.add(theme)
         localStorage.setItem("color-theme", theme)
     }
-    if(initialTheme)
-    {
-        rawSetTheme(initialTheme)
-    }
+
     useEffect(()=>{
         rawSetTheme(theme)
     },[theme])
