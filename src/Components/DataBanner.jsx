@@ -36,7 +36,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
                     <>
                         {/* //!! means true */}
                         {!!data && (<React.Fragment>
-                            <div className='relative'>
+                            <div className='relative mt-16'>
                                 <div className=' absolute -z-10'>
                                     <Image src={"https://image.tmdb.org/t/p/original" + data.backdrop_path}  className='object-cover  opacity-15 ' width={1000} height={1000} alt="" />
                                     <span className="op w-full h-[250px]  absolute bottom-0 left-0 "></span>
@@ -48,7 +48,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
 
                                     <div className='shadow-2xl  rounded-lg flex justify-center items-center'>
                                         {
-                                            data.poster_path ? (<Image className='min-w-[22rem]  h-[35rem] rounded-lg' width={1000} height={1000} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div></div>)
+                                            data.poster_path ? (<Image className='min-w-[150px] rounded-lg' width={600} height={200} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div></div>)
                                         }
 
                                     </div>
