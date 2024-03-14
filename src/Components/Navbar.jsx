@@ -9,10 +9,26 @@ import { VscChromeClose } from 'react-icons/vsc';
 const Navbar = () => {
     const router = useRouter();
     const [nav, setNav] = useState(false);
-
+    const [searchbox, setsearchbox] = useState(false)
+    const [query, setQuery] = useState("");
+    
     const shownav = () => {
         setNav(!nav);
     };
+
+    const showSearch = () => {
+        setsearchbox(!searchbox);
+    };
+
+    const SearchHandler = (e) => {
+        e.preventDefault()
+        if (e.key == "Enter" && query.length > 0) {
+           
+            router.push(`/Search/${query}`)
+            console.log("click ee")
+            // navigate(`/search/${query}`)
+        }
+    }
 
     const NavProperties = (data) => {
         if (data === 'movies') {
@@ -56,7 +72,7 @@ const Navbar = () => {
 
                         <div className="flex justify-center items-center gap-3 ">
                             <ThemeToggleBtn />
-                            <MdOutlineSearch size={20} className="cursor-pointer" />
+                            <MdOutlineSearch size={20} className="cursor-pointer" onClick={()=> showSearch()}/>
                         </div>
 
                         <div className="flex justify-center items-center gap-3 ">
@@ -72,6 +88,23 @@ const Navbar = () => {
 
 
                 </div>
+            </div>
+            {/* Search box */}
+            <div className={ searchbox ? 'fixed z-50 shadow-2xl top-20 right-0 flex flex-col justify-between ease-in duration-100 w-full': 'fixed top-[-100%]  flex flex-col items-center justify-between ease-in'}>
+
+            <div className='p-4'>
+                        <form  onSubmit={SearchHandler}>
+
+                        <input
+                            type="text"
+                            placeholder='Search Movies or TV Shows'
+                            onChange={(e) => setQuery(e.target.value)}
+                            onKeyUp={SearchHandler}
+                            className='p-2 border rounded w-full'
+                        />
+                        </form>
+                    </div>
+
             </div>
 
             {/* MOBILE MENU */}
