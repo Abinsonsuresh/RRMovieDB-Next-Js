@@ -30,10 +30,10 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
 
-
+    // origin_country revenue budget
     const director = credits?.filter((item) => item?.job === "Director")
     // const actors = credits?.filter((item) => item?.job === "Casting")
-    // console.log(actors)
+    console.log(data?.production_companies)
 
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
 
@@ -61,7 +61,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                     <div className='shadow-2xl  rounded-lg flex justify-center items-center '>
                                         {
                                             data.poster_path ? (<Image className='max-w-[350px] rounded-xl' width={400} height={400} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div>
-                                                <Skeleton variant="rectangular" animation="wave" width={350}  />
+                                                <Skeleton variant="rectangular" animation="wave" width={350} />
                                             </div>)
                                         }
 
@@ -92,7 +92,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                             <Box className="flex justify-center items-center gap-5 font-bold" sx={{ '& > legend': { mt: 2 }, }}>
 
-                                                <Rating className='' name="disabled" value={rating} precision={0.5} disabled size="large" style={{ opacity: 100 }}   />
+                                                <Rating className='' name="disabled" value={rating} precision={0.5} disabled size="large" style={{ opacity: 100 }} />
                                                 <p>{rating}/5</p>
                                             </Box>
 
@@ -106,32 +106,61 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                         </div>
 
 
+                                        <div className="grid md:grid-cols-2">
 
 
-                                        <div>
-                                            {
-                                                data.status && (<> <div>
-                                                    <p>Status: {data.status}</p>
+                                            <div>
+                                                {
+                                                    data.status && (<> <div>
+                                                        <p>Status: {data.status}</p>
 
-                                                </div> </>)
-                                            }
+                                                    </div> </>)
+                                                }
+                                            </div>
+
+
+
+                                            <div>
+                                                {
+                                                    data.release_date && (<> <div>
+                                                        <p>Release Date: {dayjs(data.release_date).format("MMM D,YYYY")}</p>
+                                                    </div> </>)
+                                                }
+                                            </div>
+
+
+                                            <div>
+                                                {
+                                                    data.runtime && (<> <div>
+                                                        <p>Runtime: {toHoursAndMinutes(data.runtime)}</p>
+                                                    </div> </>)
+                                                }
+                                            </div>
+
+                                            <div>
+                                                {
+                                                    data?.production_companies && (<>
+                                                    {
+                                                        data?.production_companies.map((item,index)=>{
+                                                            return(
+                                                                <div key={index}>
+                                                                    <p>Production Companies:</p>
+                                                                    <div>
+
+                                                                    <Image className='bg-white p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                    </>)
+                                                }
+                                            </div>
+
                                         </div>
 
-                                        <div>
-                                            {
-                                                data.release_date && (<> <div>
-                                                    <p>Release Date: {dayjs(data.release_date).format("MMM D,YYYY")}</p>
-                                                </div> </>)
-                                            }
-                                        </div>
 
-                                        <div>
-                                            {
-                                                data.runtime && (<> <div>
-                                                    <p>Runtime: {toHoursAndMinutes(data.runtime)}</p>
-                                                </div> </>)
-                                            }
-                                        </div>
+
 
                                         <div>
                                             <div>
