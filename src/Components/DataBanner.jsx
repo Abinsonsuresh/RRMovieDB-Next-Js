@@ -1,6 +1,9 @@
 import React from 'react'
 import UseFetchAPI from '@/utils/FetchAPICaller';
 import { useSelector } from 'react-redux'
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 import dayjs from 'dayjs'
 import { MdStar } from "react-icons/md";
@@ -10,13 +13,13 @@ import Image from 'next/image';
 const DataBanner = ({ videos, credits, mediaType, id }) => {
 
     const { data, loading } = UseFetchAPI(`/${mediaType}/${id}`)
-    const { url } = useSelector((state) => state.home) 
+    const { url } = useSelector((state) => state.home)
     const { genres } = useSelector((state) => state.home)
     const genresAPIData = data?.genres?.map((g, i) => g.id);
     console.log(credits)
 
-  
-    const rating = data?.vote_average.toFixed(1);
+
+    const rating = data?.vote_average.toFixed(1) / 2;
 
     const toHoursAndMinutes = (totalMinutes) => {
         const hours = Math.floor(totalMinutes / 60);
@@ -30,7 +33,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
     // console.log(actors)
 
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
- 
+
 
     return (
         <>
@@ -41,12 +44,12 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                         {!!data && (<React.Fragment>
                             <div className='relative '>
                                 <div className=' absolute -z-10 '>
-                                    <Image src={"https://image.tmdb.org/t/p/original" + data.backdrop_path}  className='object-cover  opacity-15 ' width={2000} height={1000} alt="" />
+                                    <Image src={"https://image.tmdb.org/t/p/original" + data.backdrop_path} className='object-cover  opacity-15 ' width={2000} height={1000} alt="" />
                                     <span className="op w-full h-[250px]  absolute bottom-0 left-0 "></span>
                                 </div>
 
 
-                        
+
 
                                 <div className='flex flex-col lg:flex-row justify-between items-center p-6  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 pt-16'>
 
@@ -80,25 +83,17 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                         <div className='flex justify-normal items-center'>
 
-                                        <div className='circleRating  shadow-2xl  bg-primary  rounded-full max-w-[150px] my-6'>
-                                            <CircularProgressbar
-                                                value={rating}
-                                                maxValue={10}
-                                                text={rating}
-                                                styles={buildStyles({
-                                                    pathColor:
-                                                        rating < 5 ? "red" : rating < 7 ? "orange" : "green",
-                                                })} />
+                                  
+
+                                            <Box sx={{'& > legend': { mt: 2 },}}>
+                                            
+                                            <Rating name="disabled" value={rating} disabled />
+
+                                            </Box>
 
                                         </div>
 
-                                            <div className='mx-12'>
-                                                <button className='bg-blue-500 p-6 rounded-lg font-semibold'>Watch Trailer</button>
-                                            </div>
 
-                                        </div>
-
-                              
 
                                         <div className='my-4 '>
                                             <p className='text-2xl font-semibold'>Overview</p>
@@ -106,7 +101,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                         </div>
 
 
-                              
+
 
                                         <div>
                                             {
