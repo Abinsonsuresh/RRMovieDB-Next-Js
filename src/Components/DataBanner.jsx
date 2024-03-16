@@ -106,13 +106,13 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                         </div>
 
 
-                                        <div className="grid md:grid-cols-2">
+                                        <div className="grid md:grid-cols-3 p-4 gap-5 border-b border-[#a0a0a01b]">
 
 
-                                            <div>
+                                            <div className=''>
                                                 {
-                                                    data.status && (<> <div>
-                                                        <p>Status: {data.status}</p>
+                                                    data.status && (<> <div >
+                                                        <p className='text-lg font-semibold'>Status:{data.status}</p>
 
                                                     </div> </>)
                                                 }
@@ -123,39 +123,47 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             <div>
                                                 {
                                                     data.release_date && (<> <div>
-                                                        <p>Release Date: {dayjs(data.release_date).format("MMM D,YYYY")}</p>
+                                                        <p className='text-lg font-semibold'>Release Date: {dayjs(data.release_date).format("MMM D,YYYY")}</p>
                                                     </div> </>)
                                                 }
                                             </div>
+
 
 
                                             <div>
                                                 {
                                                     data.runtime && (<> <div>
-                                                        <p>Runtime: {toHoursAndMinutes(data.runtime)}</p>
+                                                        <p className='text-lg font-semibold'>Runtime: {toHoursAndMinutes(data.runtime)}</p>
                                                     </div> </>)
                                                 }
                                             </div>
 
-                                            <div>
+                                        </div>
+
+
+                                        <div>
+
+                                        <div>
                                                 {
                                                     data?.production_companies && (<>
+                                                        <p className='text-lg font-semibold'>Production Companies:</p>
+                                                    <div className='flex justify-start items-center gap-3'>
                                                     {
                                                         data?.production_companies.map((item,index)=>{
                                                             return(
-                                                                <div key={index}>
-                                                                    <p>Production Companies:</p>
+                                                                <div className='flex gap-3' key={index}>
                                                                     <div>
-
                                                                     <Image className='bg-white p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
                                                                     </div>
                                                                 </div>
                                                             )
                                                         })
                                                     }
+                                                    </div>
                                                     </>)
                                                 }
                                             </div>
+
 
                                         </div>
 
