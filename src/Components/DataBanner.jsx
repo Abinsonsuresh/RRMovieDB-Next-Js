@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-
 import dayjs from 'dayjs'
 import { MdStar } from "react-icons/md";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -51,13 +50,13 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
 
 
-                                <div className='flex flex-col lg:flex-row justify-between items-center p-6  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 pt-16'>
+                                <div className='flex flex-col lg:flex-row justify-between items-center p-6  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-75 pt-16 mt-8'>
 
 
 
-                                    <div className='shadow-2xl  rounded-lg flex justify-center items-center mt-6 md:mt-12'>
+                                    <div className='shadow-2xl  rounded-lg flex justify-center items-center '>
                                         {
-                                            data.poster_path ? (<Image className='max-w-[350px] rounded-lg' width={600} height={200} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div></div>)
+                                            data.poster_path ? (<Image className='max-w-[350px] rounded-xl' width={400} height={400} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div>load</div>)
                                         }
 
                                     </div>
@@ -65,9 +64,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
 
                                     <div className='md:px-6'>
-                                        <div className='my-6'>
+                                        <div className='my-6 md:my-0 text-start'>
                                             <p className='text-3xl font-bold'>{data.original_title || data.title || data.name}  {dayjs(data?.release_date).format("YYYY")}</p>
-                                            <p className='text-xl font-thin italic'>{data?.tagline}</p>
+                                            <p className='text-md md:text-xl font-thin italic'>{data?.tagline}</p>
                                         </div>
 
                                         <div className='flex gap-3 '>
@@ -81,14 +80,14 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             }
                                         </div>
 
-                                        <div className='flex justify-normal items-center'>
+                                        <div className='flex justify-normal items-center my-6'>
 
-                                  
 
-                                            <Box sx={{'& > legend': { mt: 2 },}}>
-                                            
-                                            <Rating name="disabled" value={rating} disabled />
 
+                                            <Box className="flex justify-center items-center gap-5 font-bold" sx={{ '& > legend': { mt: 2 }, }}>
+
+                                                <Rating className='' name="disabled" value={rating} precision={0.5} disabled size="large" style={{ opacity: 100 }}   />
+                                                <p>{rating}/5</p>
                                             </Box>
 
                                         </div>
@@ -97,7 +96,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                         <div className='my-4 '>
                                             <p className='text-2xl font-semibold'>Overview</p>
-                                            <p className='text-lg mt-4 italic'>{data.overview}</p>
+                                            <p className='text-lg mt-4 '>{data.overview}</p>
                                         </div>
 
 
