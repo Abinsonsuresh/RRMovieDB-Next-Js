@@ -81,7 +81,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             <p className='text-md md:text-xl font-thin italic'>{data?.tagline}</p>
                                         </div>
 
-                                        <div className='flex gap-3 '>
+                                        <div className='flex gap-3 my-4'>
                                             {
                                                 genresAPIData.map((id, index) => {
                                                     if (!genres[id]?.name) return
@@ -98,7 +98,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                             <Box className="flex justify-center items-center gap-5 font-bold" sx={{ '& > legend': { mt: 2 }, }}>
 
-                                                <Rating className='' name="disabled" value={rating} precision={0.5} disabled size="large" style={{ opacity: 100 }} />
+                                                <Rating className='' name="disabled" value={rating} precision={0.1} disabled size="large" style={{ opacity: 100 }} />
                                                 <p>{rating}/5</p>
                                             </Box>
 
@@ -117,8 +117,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                             <div className=''>
                                                 {
-                                                    data.status && (<> <div >
-                                                        <p className='text-lg font-semibold'>Status:{data.status}</p>
+                                                    data.status && (<> <div className='flex items-center space-x-2'>
+                                                        <span className='text-lg font-semibold'>Status: </span>
+                                                        <p className='text-lg font-semibold text-gray-500'>{data.status}</p>
 
                                                     </div> </>)
                                                 }
@@ -128,8 +129,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                             <div>
                                                 {
-                                                    data.release_date && (<> <div>
-                                                        <p className='text-lg font-semibold'>Release Date: {dayjs(data.release_date).format("MMM D,YYYY")}</p>
+                                                    data.release_date && (<> <div className='flex items-center space-x-2'>
+                                                        <span className='text-lg font-semibold'>Release Date:</span>
+                                                        <p className='text-lg font-semibold text-gray-500'> {dayjs(data.release_date).format("MMM D,YYYY")}</p>
                                                     </div> </>)
                                                 }
                                             </div>
@@ -138,8 +140,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                             <div>
                                                 {
-                                                    data.runtime && (<> <div>
-                                                        <p className='text-lg font-semibold'>Runtime: {toHoursAndMinutes(data.runtime)}</p>
+                                                    data.runtime && (<> <div className='flex items-center space-x-2'>
+                                                          <span className='text-lg font-semibold'>Runtime: </span>
+                                                        <p className='text-lg font-semibold text-gray-500'>{toHoursAndMinutes(data.runtime)}</p>
                                                     </div> </>)
                                                 }
                                             </div>
