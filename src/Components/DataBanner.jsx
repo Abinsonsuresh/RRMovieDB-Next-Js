@@ -7,12 +7,13 @@ import { MdStar } from "react-icons/md";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Image from 'next/image';
-const DataBanner = ({ videos, credits,mediaType, id }) => {
+const DataBanner = ({ videos, credits, mediaType, id }) => {
 
     const { data, loading } = UseFetchAPI(`/${mediaType}/${id}`)
     const { url } = useSelector((state) => state.home) 
     const { genres } = useSelector((state) => state.home)
     const genresAPIData = data?.genres?.map((g, i) => g.id);
+    console.log(credits)
     // const genresAPIData = ["2","1"]
   
     const rating = data?.vote_average.toFixed(1);
@@ -25,6 +26,9 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
 
 
     const director = credits?.filter((item) => item?.job === "Director")
+    // const actors = credits?.filter((item) => item?.job === "Casting")
+    // console.log(actors)
+
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
  
 
@@ -63,7 +67,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
                                             <p className='text-xl font-thin italic'>{data?.tagline}</p>
                                         </div>
 
-                                        {/* <div className='flex gap-3 '>
+                                        <div className='flex gap-3 '>
                                             {
                                                 genresAPIData.map((id, index) => {
                                                     if (!genres[id]?.name) return
@@ -72,7 +76,7 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
                                                     )
                                                 })
                                             }
-                                        </div> */}
+                                        </div>
 
                                         <div className='flex justify-normal items-center'>
 
@@ -145,11 +149,11 @@ const DataBanner = ({ videos, credits,mediaType, id }) => {
                                             <div>
                                                 {
                                                     writer?.length > 0 && (<div>
+                                                        <span>writers:</span>
                                                         {writer?.map((Ddata, index) => (
                                                             <>
                                                                 <div key={index}>
-                                                                    <span>writer:</span>
-                                                                    <span >{Ddata?.name} {writer?.length -
+                                                                    <span >{Ddata?.name}{writer?.length -
                                                                         1 !== index && ", "}</span>
                                                                 </div>
                                                             </>

@@ -6,7 +6,7 @@ const page = ({ params }) => {
 
   const { data, loading } = UseFetchAPI(`/${params.mediaType}/${params.id}/videos`)
   const { data: credits, loading: loadingCreds } = UseFetchAPI(`/${params.mediaType}/${params.id}/credits`)
-  // console.log(data)
+  console.log(data)
   // console.log(credits?.crew)
   return (
     <>
