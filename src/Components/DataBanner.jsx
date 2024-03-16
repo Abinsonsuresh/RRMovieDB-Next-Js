@@ -33,10 +33,13 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
     // origin_country revenue budget
     const director = credits?.filter((item) => item?.job === "Director")
     // const actors = credits?.filter((item) => item?.job === "Casting")
-    console.log(data?.production_companies)
+    console.log(data)
 
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
-
+    let USDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
 
     return (
         <>
@@ -106,7 +109,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                         </div>
 
 
-                                        <div className="grid md:grid-cols-3 p-4 gap-5 border-b border-[#a0a0a01b]">
+                                        <div className="grid md:grid-cols-3 md:p-4 gap-5 border-b border-[#a0a0a01b]">
 
 
                                             <div className=''>
@@ -141,26 +144,36 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                         </div>
 
 
-                                        <div>
+                                        <div className="grid md:grid-cols-3 md:p-4 gap-5 mt-4 border-b border-[#a0a0a01b]">
 
-                                        <div>
+                                            <div>
                                                 {
-                                                    data?.production_companies && (<>
-                                                        <p className='text-lg font-semibold'>Production Companies:</p>
-                                                    <div className='flex justify-start items-center gap-3'>
-                                                    {
-                                                        data?.production_companies.map((item,index)=>{
-                                                            return(
-                                                                <div className='flex gap-3' key={index}>
-                                                                    <div>
-                                                                    <Image className='bg-white p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
-                                                                    </div>
+                                                    data?.spoken_languages && (<>
+                                                        {
+                                                            data?.spoken_languages.map((item, index) => (
+                                                                <div key={index} className=''>
+                                                                    <p className='text-lg font-semibold'>Language: {item?.name}</p>
                                                                 </div>
-                                                            )
-                                                        })
-                                                    }
-                                                    </div>
+                                                            ))
+                                                        }
                                                     </>)
+                                                }
+                                            </div>
+
+
+                                            <div>
+                                                {
+                                                    data?.revenue && (<> <div>
+                                                        <p className='text-lg font-semibold'>Revenue: {USDollar.format(data?.revenue)}</p>
+                                                    </div> </>)
+                                                }
+                                            </div>
+
+                                            <div>
+                                                {
+                                                    data?.revenue && (<> <div>
+                                                        <p className='text-lg font-semibold'>Budget: {USDollar.format(data?.budget)}</p>
+                                                    </div> </>)
                                                 }
                                             </div>
 
@@ -218,11 +231,30 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                                 }
                                             </div>
                                         </div>
+                                        {/* PRODUCTION COMPANIES */}
 
+                                        <div>
+                                            {
+                                                data?.production_companies && (<>
+                                                    <p className='text-lg font-semibold'>Production Companies:</p>
+                                                    <div className='flex justify-start items-center gap-3'>
+                                                        {
+                                                            data?.production_companies.map((item, index) => {
+                                                                return (
+                                                                    <div className='flex gap-3' key={index}>
+                                                                        <div>
+                                                                            <Image className='bg-white p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </>)
+                                            }
+                                        </div>
 
                                     </div>
-
-
 
 
 
