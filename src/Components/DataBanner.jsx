@@ -32,8 +32,10 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
     // origin_country revenue budget
     const director = credits?.filter((item) => item?.job === "Director")
-    // const actors = credits?.filter((item) => item?.job === "Casting")
-    console.log(data)
+    const Producer = credits?.filter((item) => item?.job === "Producer")
+    const EXProducer = credits?.filter((item) => item?.job === "Executive Producer")
+
+    console.log(Producer)
 
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
     let USDollar = new Intl.NumberFormat('en-US', {
@@ -105,7 +107,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                         <div className='my-4 '>
                                             <p className='text-2xl font-semibold'>Overview</p>
-                                            <p className='text-lg mt-4 '>{data.overview}</p>
+                                            <p className='text-sm md:text-lg mt-4 '>{data.overview}</p>
                                         </div>
 
 
@@ -180,20 +182,47 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                         </div>
 
+                                        <div className="grid md:grid-cols-3 md:p-4 gap-5 mt-4 border-b border-[#a0a0a01b]">
 
-
-
-                                        <div>
                                             <div>
                                                 {
                                                     director?.length > 0 && (<div> {director?.map((Ddata, index) => (
                                                         <div key={index}>
-                                                            <span >Director: {Ddata?.name} {director?.length -
-                                                                1 !== index && ", "}</span>
+                                                            <p className='text-sm font-semibold' >Director: {Ddata?.name} {director?.length -
+                                                                1 !== index && ", "}</p>
                                                         </div>
                                                     ))} </div>)
                                                 }
                                             </div>
+
+                                            <div>
+                                                {
+                                                    Producer && (<div> 
+                                                            <p className='text-sm font-semibold' >Producer: {Producer[0]?.name}</p>
+                                                     
+                                                     </div>)
+                                                }
+                                            </div>
+
+
+                                            <div>
+                                                {
+                                                    EXProducer && (<div> 
+                                                            <p className='text-sm font-semibold' >Ex-Producer: {EXProducer[0]?.name}</p>
+                                                     
+                                                     </div>)
+                                                }
+                                            </div>
+
+
+
+                                        </div>
+
+
+
+
+                                        <div>
+
 
 
                                             <div>
