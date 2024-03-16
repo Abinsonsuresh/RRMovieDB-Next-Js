@@ -1,4 +1,5 @@
 'use client'
+import Cast from "@/Components/Cast"
 import DataBanner from "@/Components/DataBanner"
 import UseFetchAPI from "@/utils/FetchAPICaller"
 
@@ -11,6 +12,10 @@ const page = ({ params }) => {
   return (
     <>
       <DataBanner  mediaType={params.mediaType} id={params.id} credits={credits?.crew} video={data?.results?.[0]}/>
+    <div className="p-6">
+      <Cast  data={credits?.cast} loading={loadingCreds}/>
+    </div>
+
     </>
   )
 }

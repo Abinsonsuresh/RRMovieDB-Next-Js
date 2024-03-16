@@ -14,7 +14,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
     const { genres } = useSelector((state) => state.home)
     const genresAPIData = data?.genres?.map((g, i) => g.id);
     console.log(credits)
-    // const genresAPIData = ["2","1"]
+
   
     const rating = data?.vote_average.toFixed(1);
 
