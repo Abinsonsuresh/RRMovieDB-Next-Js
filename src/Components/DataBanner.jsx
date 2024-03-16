@@ -9,6 +9,10 @@ import { MdStar } from "react-icons/md";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Image from 'next/image';
+import Skeleton from '@mui/material/Skeleton';
+
+
+
 const DataBanner = ({ videos, credits, mediaType, id }) => {
 
     const { data, loading } = UseFetchAPI(`/${mediaType}/${id}`)
@@ -56,7 +60,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                     <div className='shadow-2xl  rounded-lg flex justify-center items-center '>
                                         {
-                                            data.poster_path ? (<Image className='max-w-[350px] rounded-xl' width={400} height={400} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div>load</div>)
+                                            data.poster_path ? (<Image className='max-w-[350px] rounded-xl' width={400} height={400} src={"https://image.tmdb.org/t/p/original" + data?.poster_path} alt="" />) : (<div>
+                                                <Skeleton variant="rectangular" animation="wave" width={350}  />
+                                            </div>)
                                         }
 
                                     </div>
