@@ -12,7 +12,7 @@ const PopularTv = () => {
     <div>
       <>
       <div className='mt-4'>
-        <h2 className='text-2xl font-bold'>Populaar TV Shows</h2>
+        <h2 className='text-2xl font-bold'>Popular TV Shows</h2>
       </div>
       <div>
         <Caraousel data={data?.results} loading={loading} endpoint={endpoint}/>
