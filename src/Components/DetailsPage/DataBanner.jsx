@@ -10,6 +10,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Image from 'next/image';
 import Skeleton from '@mui/material/Skeleton';
+import VideoCard from './VideoCard';
 
 
 
@@ -197,20 +198,20 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                             <div>
                                                 {
-                                                    Producer && (<div> 
-                                                            <p className='text-sm font-semibold' >Producer: {Producer[0]?.name}</p>
-                                                     
-                                                     </div>)
+                                                    Producer && (<div>
+                                                        <p className='text-sm font-semibold' >Producer: {Producer[0]?.name}</p>
+
+                                                    </div>)
                                                 }
                                             </div>
 
 
                                             <div>
                                                 {
-                                                    EXProducer && (<div> 
-                                                            <p className='text-sm font-semibold' >Ex-Producer: {EXProducer[0]?.name}</p>
-                                                     
-                                                     </div>)
+                                                    EXProducer && (<div>
+                                                        <p className='text-sm font-semibold' >Ex-Producer: {EXProducer[0]?.name}</p>
+
+                                                    </div>)
                                                 }
                                             </div>
 
@@ -218,28 +219,34 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
                                         </div>
 
+                                        {/* PRODUCTION COMPANIES */}
 
+                                        <div>
+                                            {
+                                                data?.production_companies && (<>
+                                                    <p className='text-lg font-semibold'>Production Companies:</p>
+                                                    <div className='flex justify-start items-center gap-3'>
+                                                        {
+                                                            data?.production_companies.map((item, index) => {
+                                                                return (
+                                                                    <div className='flex gap-3' key={index}>
+                                                                        <div>
+                                                                            <Image className='bg-white shadow-xl p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </>)
+                                            }
+                                        </div>
 
 
                                         <div>
 
 
 
-                                            <div>
-                                                {
-                                                    writer?.length > 0 && (<div>
-                                                        <span>writers:</span>
-                                                        {writer?.map((Ddata, index) => (
-                                                            <>
-                                                                <div key={index}>
-                                                                    <span >{Ddata?.name}{writer?.length -
-                                                                        1 !== index && ", "}</span>
-                                                                </div>
-                                                            </>
-                                                        ))}
-                                                    </div>)
-                                                }
-                                            </div>
 
 
 
@@ -260,28 +267,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                                 }
                                             </div>
                                         </div>
-                                        {/* PRODUCTION COMPANIES */}
 
-                                        <div>
-                                            {
-                                                data?.production_companies && (<>
-                                                    <p className='text-lg font-semibold'>Production Companies:</p>
-                                                    <div className='flex justify-start items-center gap-3'>
-                                                        {
-                                                            data?.production_companies.map((item, index) => {
-                                                                return (
-                                                                    <div className='flex gap-3' key={index}>
-                                                                        <div>
-                                                                            <Image className='bg-white p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            })
-                                                        }
-                                                    </div>
-                                                </>)
-                                            }
-                                        </div>
 
                                     </div>
 
