@@ -1,7 +1,7 @@
 import { APIData } from '@/utils/api';
 import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component';
-import MovieCard from './MovieCard';
+import MovieCard from '../MovieCard';
 
 const SearchPage = ({query}) => {
 

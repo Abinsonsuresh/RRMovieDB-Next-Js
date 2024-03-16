@@ -1,6 +1,6 @@
 'use client'
-import Cast from "@/Components/Cast"
-import DataBanner from "@/Components/DataBanner"
+import Cast from "@/Components/DetailsPage/Cast"
+import DataBanner from "@/Components/DetailsPage/DataBanner"
 import UseFetchAPI from "@/utils/FetchAPICaller"
 
 const page = ({ params }) => {

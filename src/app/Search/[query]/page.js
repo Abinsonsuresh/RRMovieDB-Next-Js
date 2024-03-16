@@ -1,6 +1,6 @@
 'use client'
 
-import SearchPage from "@/Components/SearchPage"
+import SearchPage from "@/Components/SearchPage/SearchPage"
 
 const page = ({ params }) => {
 

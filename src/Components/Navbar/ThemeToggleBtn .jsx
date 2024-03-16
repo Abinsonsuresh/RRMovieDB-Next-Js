@@ -1,7 +1,7 @@
 'use client'
 import React, { useContext } from 'react'
 import { HiSun, HiMoon } from 'react-icons/hi'
-import { useGlobalContext } from '../context/ThemeContext';
+import { useGlobalContext } from '../../context/ThemeContext';
 // import { ThemeContext } from '../context/Theme'
 
 
