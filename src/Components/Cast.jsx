@@ -53,10 +53,13 @@ const Cast = ({ data, loading }) => {
                                                     width={125}
                                                     height={125}
                                                     alt="castimg"
-                                                
-                                                />
 
+                                                />
+                                                <div className=''>
                                                 <p className='text-center'>{item?.name}</p>
+                                                <p className='text-center text-sm'>{item?.character}</p>
+                                                </div>
+
                                             </div>
                                         )
                                     })
