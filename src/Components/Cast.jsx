@@ -32,23 +32,23 @@ const Cast = ({ data, loading }) => {
                 {
                     !loading ? (<>
                         <div className='relative  '>
-                            <div className='absolute top-[50%] right-0  bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("right")}>
+                            <div className='absolute hidden md:block top-[50%] right-0  bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("right")}>
                                 <MdOutlineNavigateNext color='white' size={20} />
                             </div>
 
-                            <div className='absolute top-[50%] left-0 bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("left")}>
+                            <div className='absolute hidden md:block top-[50%] left-0 bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("left")}>
                                 <MdOutlineNavigateBefore color='white' size={20} />
                             </div>
 
 
-                            <div ref={CastContainer} className='w-full h-[450px]   overflow-x-scroll scroll  scroll-smooth  no-scrollbar flex items-center gap-3'>
+                            <div ref={CastContainer} className='w-full max-h-[450px]   overflow-x-scroll scroll  scroll-smooth  no-scrollbar flex items-center gap-3'>
 
                                 {
                                     data?.map((item, index) => {
                                         return (
                                             <div key={index} className='flex gap-5 flex-col'>
                                                 <Image
-                                                    src={item?.profile_path ? "https://image.tmdb.org/t/p/original" + item?.profile_path : ""}
+                                                    src={item?.profile_path ? "https://image.tmdb.org/t/p/original" + item?.profile_path : "/team.jpg"}
                                                     className='min-w-44 max-h-44 object-center object-cover rounded-full shadow-2xl'
                                                     width={125}
                                                     height={125}
@@ -56,7 +56,7 @@ const Cast = ({ data, loading }) => {
                                                 
                                                 />
 
-                                                <p>{item?.name}</p>
+                                                <p className='text-center'>{item?.name}</p>
                                             </div>
                                         )
                                     })
