@@ -49,7 +49,7 @@ const Navbar = () => {
 
                 <div className="flex justify-between items-center p-4 ">
                     <div>
-                        <div className="text-xl font-bold cursor-pointer" onClick={() => NavProperties('home')}>
+                        <div className="text-xl font-bold cursor-pointer" onClick={router.push('/')}>
                             <span className="text-orange-200">RR</span>
                             <span className="text-orange-400">Movie</span>
                             <span className="text-orange-50">DB</span>
