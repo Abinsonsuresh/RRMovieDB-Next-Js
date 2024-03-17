@@ -36,7 +36,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
     const Producer = credits?.filter((item) => item?.job === "Producer")
     const EXProducer = credits?.filter((item) => item?.job === "Executive Producer")
 
-    console.log(Producer)
+    console.log(data)
 
     const writer = credits?.filter((item) => item?.job === "Screenplay" || item?.job === "Story" || item?.job === "Writer")
     let USDollar = new Intl.NumberFormat('en-US', {
@@ -141,7 +141,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             <div>
                                                 {
                                                     data.runtime && (<> <div className='flex items-center space-x-2'>
-                                                          <span className='text-lg font-semibold'>Runtime: </span>
+                                                        <span className='text-lg font-semibold'>Runtime: </span>
                                                         <p className='text-lg font-semibold text-gray-500'>{toHoursAndMinutes(data.runtime)}</p>
                                                     </div> </>)
                                                 }
@@ -155,10 +155,11 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             <div>
                                                 {
                                                     data?.spoken_languages && (<>
+                                                        <span className='text-lg font-semibold'>Language:</span>
                                                         {
                                                             data?.spoken_languages.map((item, index) => (
                                                                 <div key={index} className=''>
-                                                                    <p className='text-lg font-semibold'>Language: {item?.name}</p>
+                                                                    <p className='text-lg font-semibold  text-gray-500'> {item?.english_name}</p>
                                                                 </div>
                                                             ))
                                                         }
@@ -168,17 +169,25 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
 
                                             <div>
+                                                <span className='text-lg font-semibold'>Revenue:</span>
+
                                                 {
-                                                    data?.revenue && (<> <div>
-                                                        <p className='text-lg font-semibold'>Revenue: {USDollar.format(data?.revenue)}</p>
-                                                    </div> </>)
+                                                    data?.revenue ? (<> <div>
+                                                        <p className='text-lg font-semibold text-gray-500'>{data?.revenue === 0 ? "undisclosed" : USDollar.format(data?.revenue)}</p>
+                                                    </div> </>) : (<div>
+                                                        <p className='text-lg font-semibold text-gray-500'>undisclosed</p>
+                                                    </div>)
                                                 }
                                             </div>
 
                                             <div>
+                                                <span className='text-lg font-semibold'>Budget:</span>
+
                                                 {
-                                                    data?.revenue && (<> <div>
-                                                        <p className='text-lg font-semibold'>Budget: {USDollar.format(data?.budget)}</p>
+                                                    data?.budget ? (<> <div>
+                                                        <p className='text-lg font-semibold text-gray-500'>{USDollar.format(data?.budget)}</p>
+                                                    </div> </>) : (<> <div>
+                                                        <p className='text-lg font-semibold text-gray-500'>undisclosed</p>
                                                     </div> </>)
                                                 }
                                             </div>
@@ -192,7 +201,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                                 {
                                                     director?.length > 0 && (<div> {director?.map((Ddata, index) => (
                                                         <div key={index}>
-                                                            <p className='text-sm font-semibold' >Director: {Ddata?.name} {director?.length -
+                                                        <span className='text-lg font-semibold'>Director: </span>
+
+                                                            <p className='text-sm font-semibold text-gray-500' >{Ddata?.name} {director?.length -
                                                                 1 !== index && ", "}</p>
                                                         </div>
                                                     ))} </div>)
@@ -202,7 +213,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             <div>
                                                 {
                                                     Producer && (<div>
-                                                        <p className='text-sm font-semibold' >Producer: {Producer[0]?.name}</p>
+                                                        <span className='text-lg font-semibold'>Producer: </span>
+
+                                                        <p className='text-sm font-semibold text-gray-500' >{Producer[0]?.name}</p>
 
                                                     </div>)
                                                 }
@@ -212,7 +225,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                             <div>
                                                 {
                                                     EXProducer && (<div>
-                                                        <p className='text-sm font-semibold' >Ex-Producer: {EXProducer[0]?.name}</p>
+                                                        <span className='text-lg font-semibold'>Ex-Producer: </span>
+
+                                                        <p className='text-sm font-semibold text-gray-500' >{EXProducer[0]?.name}</p>
 
                                                     </div>)
                                                 }
@@ -234,7 +249,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                                                 return (
                                                                     <div className='flex gap-3' key={index}>
                                                                         <div>
-                                                                            <Image className='bg-white shadow-xl p-2' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />
+                                                                            {item?.logo_path && <Image className=' p-2 w-24' width={100} height={100} src={"https://image.tmdb.org/t/p/original" + item?.logo_path} alt="" />}
                                                                         </div>
                                                                     </div>
                                                                 )
@@ -251,9 +266,9 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
 
 
 
+                                            {/* CREATORS */}
 
-
-                                            <div>
+                                            {/* <div>
                                                 {
                                                     data?.created_by?.length > 0 && (<div>
                                                         {data?.created_by?.map((Ddata, index) => (
@@ -268,7 +283,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                                         ))}
                                                     </div>)
                                                 }
-                                            </div>
+                                            </div> */}
                                         </div>
 
 
