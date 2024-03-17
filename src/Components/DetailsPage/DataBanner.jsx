@@ -242,7 +242,7 @@ const DataBanner = ({ videos, credits, mediaType, id }) => {
                                         <div>
                                             {
                                                 data?.production_companies && (<>
-                                                    <p className='text-lg font-semibold'>Production Companies:</p>
+                                                    <p className='text-sm text-gray-500 font-semibold'>Production Companies:</p>
                                                     <div className='flex justify-start items-center gap-3'>
                                                         {
                                                             data?.production_companies.map((item, index) => {
