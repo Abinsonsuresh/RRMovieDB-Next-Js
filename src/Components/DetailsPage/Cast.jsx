@@ -25,18 +25,18 @@ const Cast = ({ data, loading }) => {
     console.log("CAST", data)
     return (
         <div className=''>
-            <h2 className='text-2xl font-bold'>Cast</h2>
+            
             <div className=''>
 
 
                 {
                     !loading ? (<>
                         <div className='relative  '>
-                            <div className='absolute hidden md:block top-[50%] right-0  bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("right")}>
+                            <div className='absolute cursor-pointer top-[50%] right-0  bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("right")}>
                                 <MdOutlineNavigateNext color='white' size={20} />
                             </div>
 
-                            <div className='absolute hidden md:block top-[50%] left-0 bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("left")}>
+                            <div className='absolute cursor-pointer top-[50%] left-0 bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("left")}>
                                 <MdOutlineNavigateBefore color='white' size={20} />
                             </div>
 

@@ -11,10 +11,11 @@ const page = ({ params }) => {
   // console.log(credits?.crew)
   return (
     <>
-      <DataBanner  mediaType={params.mediaType} id={params.id} credits={credits?.crew} video={data?.results?.[0]}/>
-    <div className="p-6">
-      <Cast  data={credits?.cast} loading={loadingCreds}/>
-    </div>
+      <DataBanner mediaType={params.mediaType} id={params.id} credits={credits?.crew} video={data?.results?.[0]} />
+      <div className="p-6">
+        <h2 className='text-2xl font-bold'>Cast</h2>
+      </div>
+      <Cast data={credits?.cast} loading={loadingCreds} />
 
     </>
   )
@@ -23,4 +24,4 @@ const page = ({ params }) => {
 export default page
 
 
-{/* <DataBanner video={data?.results?.[0]} credits={credits?.crew} mediaType={params.mediaType} id={params.id} /> */}
+{/* <DataBanner video={data?.results?.[0]} credits={credits?.crew} mediaType={params.mediaType} id={params.id} /> */ }
