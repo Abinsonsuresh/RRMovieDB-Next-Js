@@ -1,6 +1,7 @@
 'use client'
 import Cast from "@/Components/DetailsPage/Cast"
 import DataBanner from "@/Components/DetailsPage/DataBanner"
+import VideoCard from "@/Components/DetailsPage/VideoCard"
 import UseFetchAPI from "@/utils/FetchAPICaller"
 
 const page = ({ params }) => {
@@ -16,6 +17,11 @@ const page = ({ params }) => {
         <h2 className='text-2xl font-bold'>Cast</h2>
       </div>
       <Cast data={credits?.cast} loading={loadingCreds} />
+      <div className="p-6">
+        <h2 className='text-2xl font-bold'>Videos</h2>
+      </div>
+
+      <VideoCard data={data?.results} loading={loading}/>
 
     </>
   )
