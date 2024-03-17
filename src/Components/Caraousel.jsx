@@ -34,11 +34,11 @@ const Caraousel = ({ data, loading, endpoint }) => {
             {
                 !loading ? (<>
                     <div className='relative  '>
-                        <div className='absolute top-[50%] right-0  bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("right")}>
+                        <div className='absolute top-[50%] right-0  bg-[#424242c3] p-3 rounded-full z-50 cursor-pointer' onClick={() => CarouselNaviagtion("right")}>
                             <MdOutlineNavigateNext color='white' size={20} />
                         </div>
 
-                        <div className='absolute top-[50%] left-0 bg-[#424242c3] p-3 rounded-full z-50' onClick={() => CarouselNaviagtion("left")}>
+                        <div className='absolute top-[50%] left-0 bg-[#424242c3] p-3 rounded-full z-50 cursor-pointer' onClick={() => CarouselNaviagtion("left")}>
                             <MdOutlineNavigateBefore color='white' size={20} />
                         </div>
 
@@ -57,7 +57,7 @@ const Caraousel = ({ data, loading, endpoint }) => {
                                     const rating = item.vote_average.toFixed(1)
                                     // console.log(Type)
                                     return (
-                                        <div key={item.id} onClick={() => router.push(`/Details/${item.media_type || endpoint}/${item.id}`)} className='bg-primary relative shadow-md border border-secondary rounded-lg min-w-44 max-h-[400px] min-h-[400px]   cursor-pointer hover:scale-105 ease-in-out duration-300' >
+                                        <div key={item.id} onClick={() => router.push(`/Details/${item.media_type || endpoint}/${item.id}`)} className='bg-primary relative shadow-md border border-secondary rounded-lg min-w-44 max-h-[400px] min-h-[400px]   cursor-pointer ' >
 
                                             <div className='circleRating absolute bottom-[7.5rem] shadow-2xl  right-0 bg-primary  rounded-full z-10 max-w-[50px]'>
                                                 {
@@ -78,13 +78,12 @@ const Caraousel = ({ data, loading, endpoint }) => {
                                                 }
 
 
-                                                {/* <p className=''>{item.vote_average.toFixed(1)}</p> */}
-                                                {/* <MdStar color='yellow'/> */}
+                                              
                                             </div>
 
 
                                             <div className='absolute bg-[#424242c3] rounded-sm top-0 right-0 p-2 cursor-pointer hover:scale-105 ease-in-out duration-300'>
-                                                <MdAddToPhotos size={20} color='white' />
+                                                <MdAddToPhotos size={20} color='white' className='' />
                                             </div>
 
 

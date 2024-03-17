@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
       <ThemeProvider>
 
 
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" >
+      <body className={inter.className} suppressHydrationWarning={true}>
       <Navbar/>
         {children}
       <Footer/>
